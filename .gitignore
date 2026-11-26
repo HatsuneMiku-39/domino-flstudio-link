@@ -1,0 +1,5 @@
+domino-addon/build/
+__pycache__/
+*.pyc
+tools/device_DominoLink_with_test_bridge.py
+domino/IniFiles/*/

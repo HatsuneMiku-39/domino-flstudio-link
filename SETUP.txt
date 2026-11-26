@@ -1,0 +1,34 @@
+Domino Link - setup
+===================
+
+You need: Windows 10 or 11, FL Studio 21 or newer, and loopMIDI (free):
+https://www.tobias-erichsen.de/software/loopmidi.html
+
+Once:
+
+1. Install loopMIDI and FL Studio. Start FL Studio once, then close it.
+
+2. loopMIDI ports
+   Close loopMIDI (tray icon > Exit), double-click setup\loopMIDI-ports.cmd,
+   then start loopMIDI again. It now has the ports 1 to 16 and SysEx.
+
+3. FL Studio
+   With FL Studio closed, double-click setup\fl-studio-setup.cmd.
+   It copies the Domino Link script and the templates into
+   Documents\Image-Line\FL Studio and makes FL's MIDI settings.
+
+4. Domino's settings
+   Start domino\Domino.exe. The first time, it asks whether to load the
+   Domino Link settings: click Yes. Domino restarts with the settings made.
+   Later, to get them back (this replaces ALL of Domino's preferences):
+   File > Import Preferences > setup\domino-settings\DominoLink.dmc.
+
+Every time:
+
+   Start loopMIDI, then domino\Domino.exe, then FL Studio.
+   In FL: File > New from template > Domino > Domino A1-A16 (or A1-B16).
+   Compose in Domino; FL plays along.
+
+Your own MIDI keyboard: in FL's MIDI settings, give it a port number above 17.
+
+More (settings, troubleshooting): README.md

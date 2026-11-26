@@ -1,0 +1,1156 @@
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Usage</title>
+	<link rel="stylesheet" type="text/css" href="assets/style.css">
+</head>
+
+<body>
+	<h1>Usage</h1>
+	<h3><a name="areaname">Area Names</a></h3>
+	<div class=w>
+		The names of the screen areas are as follows.<br>
+		<img src="assets/use_001.png" width="825" height="545"><br>
+		<br>
+		<dl>
+			<dt>Main Toolbar</dt>
+			<dd>Contains buttons necessary for saving and playback.</dd>
+			<dt>Edit Toolbar</dt>
+			<dd>Contains buttons necessary for editing and each task.</dd>
+			<dt>Mark Bar</dt>
+			<dd>Marks a location or seeks to a marked location.</dd>
+			<dt>Track Monitor Bar</dt>
+			<dd>Monitors the state of the current track (channel).</dd>
+			<dt>Piano Roll Pane</dt>
+			<dd>This corresponds to the staff in sheet music. Notes are pasted here. The horizontal axis is the time axis, and the vertical axis is the scale axis.</dd>
+			<dt>Event List Pane</dt>
+			<dd>The list of events of the current track is displayed.</dd>
+			<dt>Event Graph Pane</dt>
+			<dd>Extracts the values of specified events and displays them as a graph.</dd>
+			<dt>Track Select Pane</dt>
+			<dd>The part for switching the current track. It is not displayed by default.</dd>
+			<dt>Output Pane</dt>
+			<dd>If an error occurs, it may be displayed here. Normally it is okay to keep it closed.</dd>
+		</dl>
+	</div>
+	<h3><a name="note_preview">Previewing Notes</a></h3>
+	<div class=w>
+		Now, I will explain how to use it in order from here.<br>
+		<br>
+		Before placing notes on the piano roll, if you want to confirm the sound of the scale,<br>
+		right-click the scale part you want to confirm with the pen tool (<img src="assets/use_005.png" align=absmiddle width="96" height="33">).<br>
+		<img src="assets/use_000.png" width="192" height="129"><br>
+		<br>
+		While right-clicking (dragging), the sound continues to play.<br>
+		<br>
+		<div class=memo>It is an essential function for people without perfect pitch (^^;<br>
+			By the way, the things written in this box are all unimportant, so it is okay to ignore them.</div>
+	</div>
+	<h3><a name="note_put">Placing a Note</a></h3>
+	<div class=w>
+		When placing a note, please left-click where you want to place it using the pen tool (<img src="assets/use_005.png" align=absmiddle width="96" height="33">).<br>
+		Notes are placed with default strength (Velocity) and length (Gate).<br>
+		<img src="assets/use_002.png" width="185" height="121"><br>
+		<br>
+		Also, by performing a left-drag operation, you can confirm the sound of that scale while dragging.<br>
+		When you finish dragging, the note is placed.<br>
+		Right-clicking during dragging cancels the placement.<br>
+		<br>
+		Also, since an event to initialize the MIDI device exists in the first measure,<br>
+		please place notes from the second measure onward.
+	</div>
+	<h3><a name="play">Playing</a></h3>
+	<div class=w>
+		If you can place notes appropriately, let's try playing.<br>
+		To play, click the [Play] button on the toolbar, or if it's troublesome, press the [Space] key.<br>
+		<img src="assets/use_003.png" width="187" height="71"><br>
+		<br>
+		<div class=memo>
+			Since the space key is the main one, we do not accept complaints that the toolbar button is small and hard to press (^^;
+		</div>
+		<br>
+		Playback starts.<br>
+		When it reaches the end of the input part, playback stops automatically.<br>
+		<br>
+		Also, if you click the [Play] button again or press the [Space] key during playback,<br>
+		playback stops.<br>
+	</div>
+	<h3><a name="play2">Playing in the Middle</a></h3>
+	<div class=w>
+		If you want to play from the middle of the song, please left-click the header part of the position you want to play.<br>
+		<img src="assets/use_004.png" width="220" height="152"><br>
+		<br>
+		The vertical line representing the playback position moves, so if you play in this state, playback starts from here.
+	</div>
+	<h3><a name="gate">Changing the Length (Gate) of a Note</a></h3>
+	<div class=w>
+		To change the length (Gate) of an already placed note, with the pen tool (<img src="assets/use_005.png" align=absmiddle width="96" height="33">)<br>
+		move the mouse cursor to the right end of the note you want to change.<br>
+		<br>
+		Then, the mouse cursor changes to a left-right arrow, so left-drag left-right in this state.<br>
+		<img src="assets/use_006.png" width="113" height="57"><br>
+		<br>
+		When you finish dragging, it is confirmed.<br>
+		<img src="assets/use_007.png" width="152" height="50"><br>
+		<br>
+		Also, right-clicking during dragging cancels the change.<br>
+		<br>
+		Also, you can change Gate by directly entering into the Gate field of the corresponding note event on the event list pane.<br>
+		<img src="assets/use_012.png" width="288" height="96"><br>
+		In this case, 480 is a quarter note, and the larger the value, the longer it becomes.<br>
+		By the way, when directly entering into this event list part, you can perform arithmetic operations (parentheses can also be used) like "480*4*4",<br>
+		so those who are bad at mental arithmetic, please use it.<br>
+	</div>
+	<h3><a name="velo">Changing the Strength (Velocity) of a Note</a></h3>
+	<div class=w>
+		To change Velocity, use the event graph pane.<br>
+		The event graph is an area where you can extract only one of Velocity, Tempo, Control Change Event, etc.<br>
+		and display & edit it as a graph.<br>
+		<br>
+		First, click the [Velocity] button to display Velocity here.<br>
+		<img src="assets/use_008.png" width="190" height="68"><br>
+		<br>
+		Then, bars are displayed at the same horizontal position as the notes placed on the piano roll.<br>
+		<img src="assets/use_009.png" width="234" height="275"><br>
+		This represents Velocity as a graph; the shorter it is, the weaker (smaller value), and the longer, the stronger (larger value).<br>
+		<br>
+		After that, use the pen tool (<img src="assets/use_005.png" align=absmiddle width="96" height="33">) to drag the mouse so that it intersects the left side of the bar.<br>
+		<img src="assets/use_010.png" width="113" height="123"><br>
+		<br>
+		When you finish dragging, the value at the intersected position is reflected as Velocity.<br>
+		(As usual, right-clicking during dragging cancels the change.)<br>
+		<img src="assets/use_011.png" width="106" height="139"><br>
+		<br>
+		By the way, pressing the [Anchor Points] button to display the anchor,<br>
+		<img src="assets/use_059.png" width="213" height="104"><br>
+		anchors will be displayed in the velocity area, so you can adjust by dragging up and down there.<br>
+		<img src="assets/use_178.png" width="160" height="121"><br>
+		<br>
+		You can also change Velocity by directly entering into the Vel/Value field of the corresponding note event in the event list pane.<br>
+		<img src="assets/use_013.png" width="297" height="69"><br>
+		<br>
+		Please try using them according to the situation.
+	</div>
+	<h3><a name="note_move">Moving a Note</a></h3>
+	<div class=w>
+		If you want to move a placed note later, move the cursor onto the note you want to move using the pen tool (<img src="assets/use_005.png" align=absmiddle width="96" height="33">).<br>
+		Then the mouse cursor will change to a left-right/up-down arrow, so left-drag left-right/up-down in this state.<br>
+		When you finish dragging, it is confirmed.<br>
+		<img src="assets/use_014.png" width="110" height="81"><br>
+		<br>
+		Also, right-clicking during dragging cancels the move.<br>
+	</div>
+	<h3><a name="undo">Undoing</a></h3>
+	<div class=w>
+		If you edit by mistake, etc., pressing the [Undo] button on the toolbar (or Ctrl+Z on the keyboard) will revert the edit by one step.<br>
+		<img src="assets/use_015.png" width="127" height="62">
+		<br>
+		(The number of times you can undo varies depending on memory usage.)<br>
+		<br>
+		To redo the reverted edit, press the [Redo] button on the toolbar (or Ctrl+Y on the keyboard).<br>
+		<img src="assets/use_016.png" width="127" height="62">
+	</div>
+	<h3><a name="snap">Adjusting Snapping</a></h3>
+	<div class=w>
+		When placing, moving, or adjusting Gate of notes with mouse operations, you were probably snapping (quantizing) at a certain interval.<br>
+		To make this interval longer or shorter, change the [Quantize] combo box on the toolbar.<br>
+		<img src="assets/use_017.png" width="246" height="122">
+		<br>
+		Also, to turn this snap function on/off, press the [Tick Quantize] button and [Gate Quantize] button in the toolbar information.<br>
+		<img src="assets/use_018.png" width="196" height="98"><br>
+		<br>
+		Tick Quantize switches whether to quantize at the position when placing a note, the position when moving, etc.<br>
+		Gate Quantize switches whether to quantize when changing the Gate of a note, etc.<br>
+		<br>
+		※ This setting also affects the selection tool explained later.<br>
+		<br>
+		Also, during drag operations, pressing the [Ctrl] key temporarily switches quantize on/off.<br>
+	</div>
+	<h3><a name="note_del">Removing a Note</a></h3>
+	<div class=w>
+		To delete a placed note, left-double-click the note you want to delete with the pen tool (<img src="assets/use_005.png" align=absmiddle width="96" height="33">).<br>
+		<img src="assets/use_019.png" width="187" height="106"><br>
+		<br>
+		You can also delete by clicking the corresponding note event in the event list pane and pressing the [Delete] key.<br>
+		<img src="assets/use_020.png" width="298" height="93"><br>
+	</div>
+	<h3><a name="note_def">Changing Initial Gate and Velocity Values</a></h3>
+	<div class=w>
+		When placing a note on the piano roll, Gate and Velocity were automatically set,<br>
+		at that time, the "default value of Gate and Velocity of the note" held by that track is used.<br>
+		<br>
+		This default value is automatically memorized when you change the Gate or Velocity of a note on the piano roll or event list.<br>
+		<br>
+		If you want to intentionally change this default value, adjust the Vel field and Gate field on the toolbar.<br>
+		<img src="assets/use_021.png" width="227" height="58"><br>
+	</div>
+	<h3><a name="dropper">Changing Initial Gate and Velocity Values Based on Other Notes</a></h3>
+	<div class=w>
+		If you encounter a situation while editing where "I want to add several new notes with the same Gate and Velocity as this note",<br>
+		you can change the default values of Gate and Velocity by eyedropping that note.<br>
+		<br>
+		To eyedrop, right-click the note.<br>
+		<img src="assets/use_023.png" width="176" height="86"><br>
+		<br>
+		The default value has changed.<br>
+		<img src="assets/use_024.png" width="197" height="52"><br>
+		<br>
+		Then just place notes.<br>
+	</div>
+	<h3><a name="sel_move">Moving Multiple Notes</a></h3>
+	<div class=w>
+		So far I have explained how to edit (move, delete, etc.) targeting a single note,<br>
+		from here I will explain how to edit targeting multiple notes.<br>
+		<br>
+		To move multiple notes at once, use the selection tool (<img src="assets/use_022.png" align="absmiddle" width="90" height="37">) to left-drag on the piano roll and select the notes.<br>
+		<img src="assets/use_025.png" width="260" height="208"><br>
+		<br>
+		After selecting, when you move the mouse cursor into the selection range, the cursor becomes a left-right/up-down arrow,<br>
+		so left-drag in this state.<br>
+		<img src="assets/use_026.png" width="239" height="186"><br>
+		<br>
+		When you finish dragging, it is confirmed.<br>
+		<br>
+		Also, right-clicking during dragging cancels the move.<br>
+	</div>
+	<h3><a name="sel_del">Removing Multiple Notes</a></h3>
+	<div class=w>
+		To delete multiple notes, left-drag the part you want to erase using the eraser tool (<img src="assets/use_027.png" align="absmiddle" width="87" height="35">).<br>
+		<img src="assets/use_028.png" width="211" height="113"><br>
+		<br>
+		Deleted.<br>
+		<img src="assets/use_029.png" width="211" height="113"><br>
+		<br>
+		Also, after selecting the part you want to erase using the selection tool (<img src="assets/use_022.png" align="absmiddle" width="90" height="37">), you can delete it the same way by pressing the [Delete] key.
+	</div>
+	<h3><a name="sel_copy">Duplicating Multiple Notes (Copy/Paste)</a></h3>
+	<div class=w>
+		To duplicate multiple notes, left-drag the place you want to duplicate using the selection tool (<img src="assets/use_022.png" align="absmiddle" width="90" height="37">) and select it.<br>
+		<img src="assets/use_030.png" width="119" height="147"><br>
+		<br>
+		Please press the [Ctrl+C] key on the keyboard.<br>
+		This copies the content to the clipboard.<br>
+		(It is also OK to select [Copy] from the menu that appears by right-clicking the selection range.)<br>
+		<br>
+		Set the playback position to where you want to paste.<br>
+		(For the pen tool, left-click the header; for the selection tool, left-click on the piano roll).<br>
+		<img src="assets/use_031.png" width="246" height="217"><br>
+		<br>
+		Press the [Ctrl+V] key on the keyboard.<br>
+		The content is pasted.<br>
+		<img src="assets/use_032.png" width="207" height="113"><br>
+		<br><br>
+		By the way, if you left-double-click on the selection range with the selection tool, [Copy] is performed,<br>
+		and if you left-double-click outside the selection range, [Paste] is performed, so if the keyboard is troublesome, please try this operation too.
+	</div>
+	<h3><a name="sel_copy_ctrl">Duplicating Multiple Notes (Move Duplicate)</a></h3>
+	<div class=w>
+		When duplicating to a nearby location, there is a more efficient method than copy & paste.<br>
+		Use the selection tool (<img src="assets/use_022.png" align="absmiddle" width="90" height="37">) to left-drag the place you want to duplicate and select it.<br>
+		<img src="assets/use_030.png" width="119" height="147"><br>
+		<br>
+		Please left-drag on the selection range while holding the Ctrl key.<br>
+		<img src="assets/use_169.png" width="232" height="152"><br>
+		<br>
+		You can move the duplicate.
+	</div>
+	<h3><a name="sel_velo">Changing Velocity Values of Multiple Notes</a></h3>
+	<div class=w>
+		When adjusting Velocity on the event graph, if there are notes placed at the same timing,<br>
+		all of them will be adjusted.<br>
+		<img src="assets/use_033.png" width="143" height="230"><br>
+		<br>
+		In case you want to "change only the Velocity of this note!",<br>
+		if the number of notes is small (1-2?), right-click that note with the pen tool (<img src="assets/use_005.png" align=absmiddle width="96" height="33">).<br>
+		Then the cursor will move to the Velocity field of that note on the event list, so please enter the value directly from the keyboard in this state.<br>
+		<img src="assets/use_034.png" width="292" height="55"><br>
+		<br>
+		If there are many target notes, please select only the notes you want to change using the selection tool (<img src="assets/use_022.png" align="absmiddle" width="90" height="37">).<br>
+		<img src="assets/use_035.png" width="240" height="149"><br>
+		<br>
+		Next, try writing Velocity to the event graph using the pen tool (<img src="assets/use_005.png" align=absmiddle width="96" height="33">).<br>
+		<br>
+		Only the Velocity of the selected notes will change.<br>
+		<img src="assets/use_036.png" width="227" height="333"><br>
+	</div>
+	<h3><a name="batch">Changing Gate and Velocity Values of Multiple Notes</a></h3>
+	<div class=w>
+		For example, if you want to add +10 to the Gate or Velocity of multiple notes,<br>
+		select the notes you want to adjust using the selection tool (<img src="assets/use_022.png" align="absmiddle" width="90" height="37">).<br>
+		<br>
+		Right-click inside the selection range and select [Bulk Changes...] from the menu.<br>
+		<img src="assets/use_037.png" width="301" height="326"><br>
+		<br>
+		The [Bulk Changes...] screen is displayed.<br>
+		<img src="assets/use_038.png" width="427" height="246"><br>
+		<br>
+		Here, for example, if you want to set all Gates to 240,<br>
+		enter "240" in the Gate field and press the [OK] button.<br>
+		The Gate of the note becomes 240.<br>
+		<img src="assets/use_039.png" width="146" height="150"><br>
+		<br>
+		For example, if you want to double the Gate from the current state,<br>
+		enter "*2" in the Gate field and press the [OK] button.<br>
+		<br>
+		For example, if you want to add +20 to the Gate from the current state,<br>
+		enter "+20" in the Gate field and press the [OK] button.<br>
+		<br>
+		Various adjustments are possible from direct value specification to relative specification.<br>
+	</div>
+	<h3><a name="slice">Slicing a Note</a></h3>
+	<div class=w>
+		In case you "placed several long notes but want them to stop at this position", move the playback position to where you want to stop (left-click the header),<br>
+		<img src="assets/use_040.png" width="338" height="186"><br>
+		<br>
+	 Please select [Slice (cut off)] from the [Event] menu.<br>
+		<img src="assets/use_041.png" width="341" height="97"><br>
+		<br>
+		The Gate of each note is adjusted at the playback position.<br>
+		<img src="assets/use_042.png" width="220" height="150"><br>
+		<br>
+		Also, the [Slice] function is a function that splits one note into two at the playback position.<br>
+		Also, by specifying a range with rectangular selection and then executing, you can make only the specified pitch range the processing target.<br>
+		Furthermore, by adjusting [Gate of Sliced Left Note] in [General] of [Preferences], it is also possible to shorten the Gate of the split left note.
+	</div>
+	<h3><a name="stroke">Gradually Shifting the Timing of Multiple Notes (Stroke)</a></h3>
+	<div class=w>
+		If you want to do something like a guitar strum, select the notes you want to strum using the selection tool (<img src="assets/use_022.png" align="absmiddle" width="90" height="37">).<br>
+		<br>
+		Next, right-click on the selection range and select [Stroke].<br>
+		<img src="assets/use_043.png" width="347" height="385"><br>
+		<br>
+		The [Stroke] screen is displayed.<br>
+		<img src="assets/use_044.png" width="476" height="372"><br>
+		<br>
+		Here, specify the direction you want to strum (down / up) and the Step value, and press the [OK] button.<br>
+		The timing of the notes shifts.<br>
+		<img src="assets/use_045.png" width="230" height="295"><br>
+	</div>
+	<h3><a name="sel_filter">Filtering Selection</a></h3>
+	<div class=w>
+		For example, assuming there is a state where long Gate and short Gate notes are placed consecutively, and you want to change only the long Gate notes all at once.<br>
+		If you simply select, the short Gate notes will also be selected & processed together.<br>
+		<img src="assets/use_046.png" width="240" height="103"><br>
+		<br>
+		In this state, right-click on the selection range and select [Filter...].<br>
+		<img src="assets/use_047.png" width="305" height="188"><br>
+		<br>
+		The [Filter...] screen is displayed.<br>
+		In the above example, if you appropriately specify the Gate range and press the [OK] button, you can select only the long Gate notes.<br>
+		<img src="assets/use_048.png" width="719" height="622"><br>
+		<br>
+		(After this, if you use the [Bulk Changes...] function or copy/paste, only the selected notes will be processed)<br>
+	</div>
+	<h3><a name="sel_oct">Transposing Between Octaves</a></h3>
+	<div class=w>
+		To lower or raise multiple notes by one octave at once,<br>
+		select the notes using the selection tool (<img src="assets/use_022.png" align="absmiddle" width="90" height="37">), right-click on the selection range, and select [1 Octave Up] / [1 Octave Down].<br>
+		<img src="assets/use_049.png" width="313" height="471"><br>
+	</div>
+	<h3><a name="sel_pen">Switching Between Pen and Select Tools</a></h3>
+	<div class=w>
+		The pen tool and the selection tool can be switched with each other by right-double-clicking on the piano roll.<br>
+		<img src="assets/use_050.png" width="140" height="99"><br>
+		<img src="assets/use_051.png" width="129" height="89"><br>
+		<br>
+		※ You can also assign shortcut keys to the pen tool and selection tool respectively.
+	</div>
+	<h3><a name="pc">Changing Instrument</a></h3>
+	<div class=w>
+		Double-click the program change event (purple event) on the event list to change the instrument.<br>
+		This event is displayed as "ProgramChange" or displayed as "PC:(instrument name)", etc.<br>
+		<img src="assets/use_052.png" width="305" height="117"><br>
+		<br>
+		The [Program Change Event Properties] screen is displayed.<br>
+		<img src="assets/use_053.png" width="532" height="516"><br>
+		<br>
+		Please specify Map, PC, Bank and click the [OK] button.<br>
+		The tone of the part changes.
+	</div>
+	<h3><a name="volume">Changing Volume and Pan of a Part</a></h3>
+	<div class=w>
+		To change the volume or panpot of a part, click the Vel/Value field of an event such as "Volume" or "Panpot" near the beginning of the event list,<br>
+		<img src="assets/use_054.png" width="302" height="147"><br>
+		<br>
+		Please enter the value from the keyboard.<br>
+		<img src="assets/use_055.png" width="302" height="147"><br>
+		(Confirmed with the [Enter] key.)<br>
+		<br>
+		※ The notation and color may differ depending on the sound source definition file.
+	</div>
+	<h3><a name="volume2">Changing Volume and Pan Live</a></h3>
+	<div class=w>
+		Previously we only changed the volume of a part once at the beginning of the song, but for changing volume and pan live,<br>
+		switch the event graph display to "Volume".<br>
+		(The notation may differ depending on the sound source definition file.)<br>
+		<img src="assets/use_056.png" width="366" height="191"><br>
+		In the event graph section, how the volume of the part changes over time is displayed as a line graph.<br>
+		<br>
+		Then, use the pen tool (<img src="assets/use_005.png" align=absmiddle width="96" height="33">) to move the mouse cursor to the position you want to change.<br>
+		(You can also switch to the pen by directly clicking the freehand tool.)<br>
+		<br>
+		Referring to the value displayed at the right end of the status bar, left-click at the place you want to write.<br>
+		<img src="assets/use_058.png" width="194" height="95"><br>
+		<br>
+		An event to change the volume of the part has been inserted at that position.<br>
+		<img src="assets/use_057.png" width="226" height="169"><br>
+		<br><br>
+		By the way, pressing the [Anchor Points] button to display the anchor,<br>
+		<img src="assets/use_059.png" width="213" height="104"><br>
+		you can also move the event placed once left-right/up-down with the pen tool.<br>
+		<img src="assets/use_060.png" width="198" height="131"><br>
+		Dragging while holding the Ctrl key activates the Tick quantize function.<br>
+		Dragging while holding the Shift key activates the Tick fix function.<br>
+		<br>
+		Also, you can insert an event at the playback position by clicking the numeric part on the left with the mouse.<br>
+		<img src="assets/use_061.png" width="184" height="128"><br>
+		<br>
+		Please use the functions that are easy to use according to the situation.
+	</div>
+	<h3><a name="pbcurve">Changing Pitch Bend and Expression Continuously (Mouse)</a></h3>
+	<div class=w>
+		To input pitch bend or expression continuously, switch the event graph display to<br>
+		pitch bend or expression.<br>
+		<img src="assets/use_062.png" width="357" height="62"><br>
+		<br>
+		Next, select the line or curve you want to use.<br>
+		<img src="assets/use_063.png" width="236" height="99"><br>
+		<br>
+		When you left-drag on the event graph part, you can see how it will be input, so<br>
+		please end the drag operation at a good place.<br>
+		<img src="assets/use_064.png" width="243" height="170"><br>
+		Dragging while holding the Ctrl key activates the Tick quantize function.<br>
+		Right-clicking during dragging cancels the input.<br>
+		<br>
+		When you finish the drag operation, events are inserted continuously.<br>
+		<img src="assets/use_065.png" width="256" height="179"><br>
+		<br>
+		Immediately after installation, the height of the event graph pane is set to an optimal size,<br>
+		but if you try to input pitch bend in detail, it may be too narrow.<br>
+		In that case, you can adjust the height of the event graph by dragging the "knob" slightly above the event graph pane up and down.<br>
+		<img src="assets/use_066.png" width="276" height="353"><br>
+		<br>
+		To return to the original optimal size, left-double-click the "knob".<br>
+		<img src="assets/use_067.png" width="136" height="77"><br>
+		<br>
+		Also, the insertion interval can be changed from [Interval Setting] in the menu that appears by pressing the [▼] button on the right side of the line tool.<br>
+		<img src="assets/use_068.png" width="209" height="244"><br>
+	</div>
+	<h3><a name="pbcurve_sel">Changing Pitch Bend and Expression Continuously (Selection)</a></h3>
+	<div class=w>
+		The previous method of inputting lines/curves with the mouse can be said to be a difficult method for those who want to input proper data, as it is subject to subtle mouse movements.<br>
+		<br>
+		In that case, it might be good to use the function to input lines/curves into the selection range.<br>
+		To use this function, first display the type of data you want to input on the event graph.<br>
+		<img src="assets/use_069.png" width="492" height="71"><br>
+		<br>
+		Select the event graph part with the selection tool (<img src="assets/use_070.png" align=absmiddle width="71" height="32">).<br>
+		<br>
+		Please press the [Input Line/Curve into Selection Range] button on the toolbar.<br>
+		<img src="assets/use_071.png" width="281" height="183"><br>
+		<br>
+		The [Input Line/Curve into Selection Range] screen is displayed.<br>
+		<br>
+		On this screen, you can input lines/curves from the left end to the right end of the selection range.<br>
+		Please specify S.Value on the left and E.Value on the right.<br>
+		(It is also possible to drag the triangle mark with the mouse.)<br>
+		<img src="assets/use_072.png" width="564" height="474"><br>
+		<br>
+		Please set the Step value (interval) and line/curve formula and press the [OK] button.<br>
+		<img src="assets/use_073.png" width="564" height="474"><br>
+		<br>
+		Data is input.<br>
+		<img src="assets/use_074.png" width="220" height="164"><br>
+		<br>
+		Also, when inputting pitch bend, a field to specify by key (semitone) units in addition to value specification is displayed.<br>
+		<img src="assets/use_075.png" width="97" height="108"><br>
+	</div>
+	<h3><a name="pbcurve_copy">Copying Pitch Bend and Expression Curves</a></h3>
+	<div class=w>
+		Display the events you want to copy on the event graph,<br>
+		and select the event graph part with the selection tool (<img src="assets/use_070.png" align=absmiddle width="71" height="32">).<br>
+		<img src="assets/use_076.png" width="188" height="168"><br>
+		<br>
+		Press the [Ctrl+C] key on the keyboard.<br>
+		(It is also OK to select [Copy] from the menu that appears by right-clicking the selection range.)<br>
+		This copies the event to the clipboard.<br>
+		<br>
+		After that, left-click where you want to paste with the selection tool and adjust the playback position.<br>
+		Pressing the [Ctrl+V] key on the keyboard pastes the events in the clipboard.<br>
+		<img src="assets/use_077.png" width="323" height="182"><br>
+		<br>
+		By the way, if you left-double-click on the selection range with the selection tool, [Copy] is performed,<br>
+		and if you left-double-click outside the selection range, [Paste] is performed, so if the keyboard is troublesome, please try this operation too.
+	</div>
+	<h3><a name="track_cur">Changing Current Track</a></h3>
+	<div class=w>
+		To change the track to edit (current track), click the track switch combo box on the toolbar and specify the track.<br>
+		<img src="assets/use_078.png" width="315" height="405"><br>
+		<br>
+		You can also move to [Next Track] / [Previous Track].<br>
+		(Shortcut keys: [Ctrl+PageDown] [Ctrl+PageUp])<br>
+		<img src="assets/use_079.png" width="197" height="104"><br>
+		<br>
+		You can also make switching easier by displaying the [Track Bar], a bar for switching tracks.<br>
+		<img src="assets/use_080.png" width="329" height="179"><br>
+		<img src="assets/use_081.png" width="908" height="114"><br>
+		<br>
+		<br>
+		If the [Track Bar] is hard to see, you can also switch by displaying the [Track Selection Panel].<br>
+		<img src="assets/use_173.png" width="269" height="107"><br>
+		<img src="assets/use_174.png" width="350" height="423"><br>
+		The placement location of the [Track Selection Panel] can also be changed from [Preferences].
+	</div>
+	</div>
+	<h3><a name="onionskin">Displaying Notes Other Tracks at the Same Time (Onion Skin)</a></h3>
+	<div class=w>
+		You can display the contents of other tracks simultaneously in the piano roll area.<br>
+		<img src="assets/use_084.png" width="269" height="292"><br>
+		To display notes of other tracks, click the [▼] button on the right side of the [Onion Skin] button on the toolbar,<br>
+		and select the track you want to display.<br>
+		<img src="assets/use_082.png" width="345" height="218"><br>
+		<br>
+		<dt>Display Previous Track on Piano Roll</dt>
+		<dd>Displays the contents of the previous track on the piano roll.</dd>
+		<dt>Display Next Track on Piano Roll</dt>
+		<dd>Displays the contents of the next track on the piano roll.</dd>
+		<dt>Display Specified Track on Piano Roll</dt>
+		<dd>Specify a track to display its contents. Executing this displays the [Track Reference] screen, but you can also specify multiple with Ctrl+left click, etc.</dd>
+		<dd><img src="assets/use_083.png" width="343" height="450"></dd>
+		<dt>Display Same Color Track on Piano Roll</dt>
+		<dd>Displays tracks of the same color on the piano roll.</dd>
+		<dd>Track colors can be set from [Onion Color] on the [Track Properties] screen or from the right-click menu of the track select pane.</dd>
+		</dl>
+		Also, if [Remember Settings Per Track] is on, the onion skin settings are remembered per track.<br>
+		If off, you can use common settings for all tracks.
+		<br>
+		<br>
+		You can also set onion skin from the [Track Bar].<br>
+		Please right-click the track you want to display.<br>
+		Ctrl+right click also switches track display ON/OFF.<br>
+		<img src="assets/use_175.png" width="197" height="74"><br>
+		(An underline is attached to the target track.)<br>
+		<br>
+		<br>
+		Likewise, you can set onion skin from the [Track Selection Panel] as well.<br>
+		Shift+left click displays only that track,<br>
+		Ctrl+left click switches display/hide of that track.<br>
+		<img src="assets/use_176.png" width="144" height="219"><br>
+	</div>
+	<h3><a name="tempo">Changing Tempo</a></h3>
+	<div class=w>
+		Tempo can be written only on a special track called the "Conductor Track", not on a normal track.<br>
+		<br>
+		To change the tempo, select Conductor from the [Track Switch] combo box to make the Conductor Track the current track.<br>
+		<img src="assets/use_085.png" width="307" height="93"><br>
+		<br>
+		A tempo event exists near the beginning of the event list, so click the Vel/Value field and enter the value directly from the keyboard.<br>
+		<img src="assets/use_086.png" width="312" height="157"><br>
+		<img src="assets/use_087.png" width="312" height="157"><br>
+		<br>
+		<br>
+		If you want to change the tempo in the middle of the song, use the pen tool on the Conductor Track and write on the event graph part.<br>
+		<img src="assets/use_088.png" width="184" height="110"><br>
+		<br>
+		Of course, you can also gradually speed up or slow down using the line tool, etc.<br>
+		<img src="assets/use_089.png" width="219" height="137"><br>
+	</div>
+	<h3><a name="rhythm">Editing Rhythm Track</a></h3>
+	<div class=w>
+		Since most devices have channel 10 as the rhythm track, channel 10 is preset as the rhythm track in Domino as well.<br>
+		To edit the rhythm track, select "A10" from the [Track Switch] combo box and change the current track.<br>
+		<img src="assets/use_090.png" width="307" height="282"><br>
+		<br>
+		On other tracks, a keyboard image was displayed on the piano roll, but on the rhythm track, instrument names are displayed.<br>
+		<img src="assets/use_091.png" width="294" height="271"><br>
+		<br>
+		Editing is possible just like a normal track, but a slightly different point is that the default Gate value of notes is fixed (set on the definition file side).<br>
+		<br>
+		Also, when placing a note, a ○ mark is displayed.<br>
+		<img src="assets/use_092.png" width="205" height="105"><br>
+		<br>
+		Also, when changing the drum set by double-clicking ProgramChange,<br>
+		please set [Mode] to [Drum Set List] and then select the tone.<br>
+		<img src="assets/use_093.png" width="366" height="254"><br>
+	</div>
+	<h3><a name="ryhthm_velo">Changing Note Strength on Rhythm Track</a></h3>
+	<div class=w>
+		If you want to adjust Velocity in the event graph part, notes placed at the same timing will<br>
+		all be adjusted.<br>
+		(Even if you want to change only the bass drum, the snare also changes, which happens.)<br>
+		<br>
+		This can be solved by the same method as "<a href="#sel_velo">Changing Velocity Values of Multiple Notes</a>",<br>
+		but for rhythm tracks there is an easier method, so I will explain it.<br>
+		<br>
+		By left-clicking the instrument name on the left (dragging for multiple), you can select that scale.<br>
+		<img src="assets/use_094.png" width="138" height="127"><br>
+		<br>
+		If you write Velocity to the event graph part in this state, only the Velocity of the selected scale will change.<br>
+		<img src="assets/use_095.png" width="260" height="244"><br>
+	</div>
+	<h3><a name="ryhthm_trset">Converting a Track to a Rhythm Track</a></h3>
+	<div class=w>
+		<div class=caution>
+			This explanation is only for those using "SC-8850" as the hardware sound source and "SC-8850" as the sound source definition file.
+		</div>
+		<br>
+		The default channel 10 is automatically set as the rhythm track,<br>
+		but in the case of SC-8850, other tracks can be handled as rhythm tracks.<br>
+		<br>
+		Here, I will explain how to make channel 11 "Drum1" or "Drum2".<br>
+		<br>
+		First, make channel 11 (A11) the current track.<br>
+		<img src="assets/use_096.png" width="280" height="288"><br>
+		<br>
+		In the initial state of SC-8850, the part mode of channel 11 is a normal part (Norm), so first you need to<br>
+		change this to "Drum1" or "Drum2".<br>
+		To change the part mode, click the topmost event of the event list,<br>
+		<img src="assets/use_097.png" width="309" height="146"><br>
+		<br>
+		Select [Control Change] from the [Insert] menu.<br>
+		<img src="assets/use_098.png" width="298" height="128"><br>
+		<br>
+		A strange event is inserted, so please change its Step value to an appropriate value.<br>
+		<img src="assets/use_099.png" width="286" height="113"><br>
+		<br>
+		Double-click that event.<br>
+		The [Control Change Event Properties] screen appears, so<br>
+		select PartEdit→Part Mode from the macro part.<br>
+		<img src="assets/use_100.png" width="567" height="517"><br>
+		<br>
+		<img src="assets/use_101.png" width="297" height="78"><br>
+		The setting on the MIDI device side is now OK.<br>
+		<br>
+		Next, set Domino to handle this track as a rhythm track.<br>
+		Double-click the ProgramChange event in the event list.<br>
+		<img src="assets/use_102.png" width="302" height="90"><br>
+		<br>
+		The [Program Change Event Properties] screen is displayed, so<br>
+		please set [Mode] to [Drum Set List] and then select the tone.<br>
+		<img src="assets/use_103.png" width="532" height="516"><br>
+		<br>
+		Check [Update Track Info] (it should be checked by default),<br>
+		and press the [OK] button.<br>
+		<br>
+		Now the tone of the current track is set, and at the same time the track is set as a rhythm track.<br>
+		<img src="assets/use_104.png" width="234" height="54"><br>
+	</div>
+	<h3><a name="tr_name">Naming a Track</a></h3>
+	<div class=w>
+		To change the track name of the current track, please press the [Track Properties] button on the toolbar.<br>
+		<img src="assets/use_105.png" width="263" height="55"><br>
+		<br>
+		The [Track Properties] screen is displayed, so please enter the track name and press the [OK] button.<br>
+		<img src="assets/use_106.png" width="476" height="393"><br>
+	</div>
+	<h3><a name="tr_add">Adding a Track</a></h3>
+	<div class=w>
+		In the mode displaying the piano roll, only the content of the current track can be seen, so the overall track visibility is poor.<br>
+		To add or remove tracks, it is easier to do so in [Track List] mode.<br>
+		(Track addition etc. can also be done in [Track Selection Panel].)<br>
+		<br>
+		To switch to [Track List] mode, press the [Tab] key on the keyboard.<br>
+		(Pressing again brings back the piano roll)<br>
+		<br>
+		Please right-click the track name part where you want to add and select [Add Track].<br>
+		<img src="assets/use_107.png" width="348" height="176"><br>
+		<br>
+		A new track is added after that track.<br>
+		<img src="assets/use_108.png" width="197" height="78"><br>
+		<br>
+		Right-click the added track, select [Track Properties],<br>
+		and set the name, port, and channel.<br>
+		<img src="assets/use_109.png" width="345" height="128"><br>
+		<br>
+		The track content is empty, so you need to add initialization events, etc.<br>
+		If you want to add a track including initialization events, please refer to "Adding All Tracks for One Port at Once" below.
+	</div>
+	<h3><a name="tr_add_port">Adding a Track Set for a Port</a></h3>
+	<div class=w>
+		In the newly created state, about 16 tracks for port A are prepared in advance, and all initialization events are included.<br>
+		Such initialization information (default track information) is written in the sound source definition file specified for port A, and tracks are created based on that information.<br>
+		<br>
+		In Domino, you can also add tracks all at once based on such initialization information.<br>
+		<br>
+		To add default tracks, please right-click an appropriate track and select [Add Default Track].<br>
+		<img src="assets/use_170.png" width="339" height="127"><br>
+		<br>
+		A list of ports with sound sources specified is displayed, so please select the port you want to add.<br>
+		Then default track information is displayed on the right side, so check the necessary tracks and press the [OK] button.<br>
+		<img src="assets/use_171.png" width="426" height="417"><br>
+		<br>
+		Tracks are added at the bottom.<br>
+		<img src="assets/use_172.png" width="245" height="229"><br>
+	</div>
+	<h3><a name="tr_del">Removing a Track</a></h3>
+	<div class=w>
+		To delete a track, switch to [Track List] mode ([Tab] key to switch), right-click the track name part you want to delete,<br>
+		and select [Remove Track].<br>
+		<img src="assets/use_110.png" width="323" height="125"><br>
+	</div>
+	<h3><a name="tr_move">Rearranging a Track</a></h3>
+	<div class=w>
+		To change the order of tracks, switch to [Track List] mode ([Tab] key to switch), then left-drag the track name part of the track you want to rearrange up and down.<br>
+		<img src="assets/use_111.png" width="218" height="171"><br>
+		<br>
+		It is confirmed when the drag operation is complete.<br>
+		(Right-clicking during drag operation cancels it.)<br>
+	</div>
+	<h3><a name="mtr_edit">Editing Multiple Tracks</a></h3>
+	<div class=w>
+		To copy, delete, paste, etc. the content of each event across multiple tracks,<br>
+		switch to [Track List] mode ([Tab] key to switch), then use the selection tool or eraser tool to<br>
+		select track content and perform copy, delete, etc.<br>
+		<img src="assets/use_112.png" width="233" height="200"><br>
+		<br>
+		Also, if you want to process all tracks, it is convenient to select the header part.<br>
+		<img src="assets/use_113.png" width="242" height="231"><br>
+	</div>
+	<h3><a name="track_solo">Playing a Specific Track</a></h3>
+	<div class=w>
+		First, please switch to [Track List] mode ([Tab] key to switch).<br>
+		<br>
+		I think the track name and a speaker icon are displayed on the left side.<br>
+		The track on which the speaker icon is displayed means the track to play.<br>
+		<img src="assets/use_114.png" width="212" height="220"><br>
+		<br>
+		By left-clicking the area of the speaker icon, you can switch whether to play or not.<br>
+		By right-clicking the area of the speaker icon, you can switch between solo performance and all tracks performance.<br>
+		<br>
+		Also, on the normal piano roll screen, you can specify [Solo Performance (S mark)] and [All Tracks Performance (A mark)] on the toolbar.<br>
+		<img src="assets/use_115.png" width="328" height="75"><br>
+	</div>
+	<h3><a name="mark">Setting a Marker</a></h3>
+	<div class=w>
+		By setting markers on the beat, it becomes easier to change the playback position.<br>
+		<br>
+		<div class=memo>It might be good to label Intro="I", A melody="A", B melody="B", Chorus="S", etc.</div>
+		<br>
+		To add a marker, set the playback position to where you want to add it, and click the [Add Marker] button.<br>
+		<img src="assets/use_116.png" width="191" height="86"><br>
+		<br>
+		The [Add Marker] screen is displayed, so please enter the name and press the [OK] button.<br>
+		<img src="assets/use_117.png" width="377" height="210"><br>
+		<br>
+		The marker added earlier is displayed on the marker bar.<br>
+		<img src="assets/use_118.png" width="230" height="89"><br>
+		<br>
+		By clicking the marker on this marker bar, the playback position moves to the marked position.<br>
+		<br>
+		To delete a marker or change the marker label, right-click the marker on the marker bar.<br>
+		<img src="assets/use_179.png" width="321" height="94"><br>
+	</div>
+	<h3><a name="ts">Setting the Time Signature</a></h3>
+	<div class=w>
+		In the default state, it is 4/4 time signature, but to change this, double-click the time signature event of the Conductor Track.<br>
+		<img src="assets/use_119.png" width="296" height="257"><br>
+		<br>
+		The [Time Signature Event Properties] screen is displayed, so please set and click the [OK] button.<br>
+		<img src="assets/use_120.png" width="287" height="174"><br>
+		<br>
+		It is reflected on the editing screen.<br>
+		<img src="assets/use_121.png" width="713" height="95"><br>
+		<br>
+		If you want to change the time signature in the middle of the song (or if there is no time signature event), move the playback position to the measure you want to change and click [Time Signature] of the [Insert] menu.<br>
+		<img src="assets/use_180.png" width="294" height="316"><br>
+		<br>
+		Also, the time signature information inserted here is inserted into the Conductor Track, so please re-edit or delete it on the Conductor Track.
+	</div>
+	<h3><a name="title">Setting the Title and Other Project Properties</a></h3>
+	<div class=w>
+		To set the title and other project properties, please press the [Project Properties] button on the toolbar.<br>
+		<img src="assets/use_122.png" width="218" height="97"><br>
+		<br>
+		The [Project Properties] screen is displayed.<br>
+		Please enter the song name and copyright and press the [OK] button.<br>
+		<img src="assets/use_123.png" width="588" height="373"><br>
+		<br>
+		The song name is displayed on the window's title bar.<br>
+		<img src="assets/use_124.png" width="570" height="68"><br>
+		(This song name and copyright information are saved when exporting as SMF.)<br>
+	</div>
+	<h3><a name="comment">Inserting a Comment Event</a></h3>
+	<div class=w>
+		Click an event in the event list, and with focus on the event list (square cursor is black),<br>
+		select [Comments] from the [Insert] menu, and a comment event is inserted at the cursor position of the event list.<br>
+		<img src="assets/use_125.png" width="400" height="250"><br>
+		<br>
+		After setting the playback position on the piano roll side, select [Comments] from the [Insert] menu,<br>
+		and a comment event is inserted at the playback position.<br>
+		<br>
+		Use comment events when you want to leave a memo on the event list.<br>
+		By clicking the event field of the comment event and entering characters from the keyboard, you can change the comment content.<br>
+		<img src="assets/use_126.png" width="305" height="61"><br>
+	</div>
+	<h3><a name="exc">Inserting an Exclusive Event</a></h3>
+	<div class=w>
+		Click an event in the event list, and with focus on the event list (square cursor is black),<br>
+		select [Exclusive] from the [Insert] menu, and an exclusive event is inserted at the cursor position of the event list.<br>
+		<img src="assets/use_127.png" width="395" height="207"><br>
+		<br>
+		After setting the playback position on the piano roll side, select [Exclusive] from the [Insert] menu,<br>
+		and an exclusive event is inserted at the playback position.<br>
+		<br>
+		To change the content of the exclusive event (although you can also enter directly on the event list),<br>
+		please double-click the event.<br>
+		<br>
+		The [Exclusive Event Properties] screen is displayed.<br>
+		<img src="assets/use_128.png" width="476" height="420"><br>
+		<br>
+		The explanation is written in this screen, so please read it.<br>
+		<br>
+		Please set the content and press the [OK] button.<br>
+	</div>
+	<h3><a name="cc">Inserting a Control Change Event</a></h3>
+	<div class=w>
+		Normally, control change refers to control change numbers 0 to 127, which are messages to set volume and panpot by number,<br>
+		but in Domino, this control change is further extended, allowing you to freely define and use numbers 128 and above (see <a href="module.html">Sound Source Definition File Specifications</a> for the upper limit of numbers).<br>
+		<br>
+		This allows you to adjust device-specific parameters such as master volume and EFX with the same ease as normal control change.<br>
+		<br><br>
+		Click an event in the event list, and with focus on the event list (square cursor is black),<br>
+		select [Control Change] from the [Insert] menu, and a control change is inserted at the cursor position of the event list.<br>
+		<img src="assets/use_129.png" width="305" height="121"><br>
+		<br>
+		After setting the playback position on the piano roll side, select [Control Change] from the [Insert] menu,<br>
+		and a control change event is inserted at the playback position.<br>
+		<br>
+		To set the number and value of control change, please double-click the event.<br>
+		<br>
+		The [Control Change Event Properties] screen is displayed, so please set the macro and value you want to set and press the [OK] button.<br>
+		<img src="assets/use_130.png" width="567" height="517"><br>
+	</div>
+	<h3><a name="cc2">Inserting Multiple Control Change Events</a></h3>
+	<div class=w>
+		To insert multiple control change macros at once, set the playback position to where you want to insert,<br>
+		and select [Control Change (Multiple)] from the [Insert] menu.<br>
+		<img src="assets/use_131.png" width="287" height="134"><br>
+		<br>
+		The [Insert Control Change Event (Multiple)] screen is displayed.<br>
+		<br>
+		Please check the macro you want to insert and press the [OK] button.<br>
+		(If you check the folder part, all macros in it will be checked.)<br>
+		<img src="assets/use_132.png" width="364" height="480"><br>
+		※ The screen is an example using the SC-8850 sound source definition file.<br>
+		<br>
+		Events have been inserted.<br>
+		<img src="assets/use_133.png" width="297" height="328"><br>
+	</div>
+	<h3><a name="loop">Playing in a Loop</a></h3>
+	<div class=w>
+		To play a specific part in a loop, select the range you want to loop.<br>
+		<img src="assets/use_134.png" width="446" height="75"><br>
+		<br>
+		Next, press the [Loop] button on the toolbar.<br>
+		<img src="assets/use_135.png" width="218" height="78"><br>
+		<br>
+		After that, just play, and the range will be played repeatedly.<br>
+		<br>
+		For temporarily loop playback, the above method is the quickest, but if you want to loop play the same part regularly, it is troublesome to select it every time.<br>
+		In that case, select the range you want to loop, then select [Place Markers On Selection] from [Loop] of the [Playback] menu.<br>
+		<img src="assets/use_181.png" width="563" height="256"><br>
+		<br>
+		Loop markers are displayed on the header.<br>
+		<img src="assets/use_182.png" width="446" height="75"><br>
+		<br>
+		The start and end points of the loop marker can be moved with left-drag of the mouse.<br>
+		Whether to prioritize the selection range or loop marker as the loop range can be switched with [Priority Selection Range] ON/OFF from [Loop] of the [Playback] menu.<br>
+	</div>
+	<h3><a name="sync">Syncing Playback Position with MIDI Devices</a></h3>
+	<div class=w>
+		MIDI sound sources hold various values internally.<br>
+		<br>
+		For example, if you play a part in Domino and stop playback after transmitting pitch bend 4000,<br>
+		and then start playback again from another location, the pitch bend value inside the sound source remains 4000,<br>
+		so it will be played at an unintended pitch.<br>
+		<br>
+		Of course, the same applies to volume and panpot, not just pitch bend,<br>
+		and there are many cases where you cannot play as intended.<br>
+		<br>
+		In Domino, it has become possible to match the current playback position and the state of the MIDI sound source to some extent.<br>
+		<br>
+		To match the state, please select [Sync of MIDI Devices] from the [Playback] menu.<br>
+		<img src="assets/use_136.png" width="296" height="519"><br>
+		<br>
+		The parameters that match the state vary depending on the sound source definition file,<br>
+		but program change events, volume, panpot, expression, etc. are valid.<br>
+		<br>
+		Also, you can automatically match the state.<br>
+		To automate, please select [Auto-Sync to MIDI Devices] from the [Playback] menu.<br>
+		<img src="assets/use_137.png" width="290" height="536"><br>
+		Then, when you move the playback position, the [Sync of MIDI Devices] process is automatically executed.<br>
+	</div>
+	<h3><a name="param">Using Variables</a></h3>
+	<div class=w>
+		Variables can be used in the Gate field and Vel/Value field of control change events, and in tempo.<br>
+		<br>
+		<div class=memo>
+			I think it is better to keep it as a "constant" usage rather than a "variable".<br>
+			Although I tried making it, the usability may not be very good.<br>
+		</div>
+		<br>
+		For example, assuming there is a song structure like A melody → B melody → Chorus → A melody → B melody → Chorus,<br>
+		let's say you want volume 50 during A melody and volume 60 during B melody.<br>
+		When setting volume normally without using variables,<br>
+		A melody (Vol=50) → B melody (Vol=60) → Chorus → A melody (Vol=50) → B melody (Vol=60) → Chorus<br>
+        you probably insert events in each scene like this.<br>
+		<br>
+		However, in this case, if you want to change the A melody volume to 55, you need to modify 2 places.<br>
+		(It's fine if it's only 2 places, but if there are many, it's tough)<br>
+		<br>
+		Therefore, if you define variables in advance such as "a_vol = 50", "b_vol = 60" using variables,<br>
+		and specify that as the value of the Volume (Part Level) event,<br>
+		if you want to change the A melody volume later, you only need to modify "a_vol = 55".<br>
+		<br>
+		To actually define variables, select [Variable List] from the [Edit] menu.<br>
+		<img src="assets/use_139.png" width="339" height="629"><br>
+		<br>
+		All variables existing in memory are displayed, so<br>
+		please write the variables you want to use line by line in the format "variable name = value".<br>
+		<img src="assets/use_138.png" width="546" height="411"><br>
+		(Variable names distinguish between full-width and half-width, but do not distinguish between half-width uppercase and lowercase. Rather, they become lowercase.)<br>
+		<br>
+		After that, you can use it simply by directly entering the variable name in the Vel/Value field of the control change event.<br>
+		<img src="assets/use_140.png" width="298" height="149"><br>
+		<br>
+		Also, the effective range of this variable is all tracks within that file, so if you simply use a name like a_vol there,<br>
+		you may have trouble when you want to do something similar on other tracks ^^;;<br>
+		<br>
+		<div class=memo>
+			By the way, there are also variable events, which are events that can define and recalculate variables during playback.<br>
+			However, since they do not have good compatibility with the [Sync of MIDI Devices] function,<br>
+			it is better to avoid using variable events when using that function.
+		</div>
+	</div>
+	<h3><a name="rtrec">Recording in Real Time</a></h3>
+	<div class=w>
+		You can take in the content played in real time from a MIDI keyboard etc. as data.<br>
+		(This is not a function to record audio from a microphone.)<br>
+		<br>
+		To do real-time recording, please press the [Real-time Recording] button on the toolbar.<br>
+		<img src="assets/use_141.png" width="252" height="74"><br>
+		<br>
+		The [Real-time Recording] screen is displayed, so please set the playback range and tempo and press the [Record] button.<br>
+		<img src="assets/use_142.png" width="308" height="453"><br>
+		<br>
+		Playback starts, so please start input from the MIDI keyboard, etc.<br>
+		<br>
+		When playback ends or when you press the [Stop] button, the input content is reflected on the screen.<br>
+	</div>
+	<h3><a name="strec">Recording in Steps</a></h3>
+	<div class=w>
+		Step recording is a function to take in content input from a MIDI keyboard as data.<br>
+		Unlike real-time recording, since you specify the length (interval) of notes in advance,<br>
+		you can record at free timing.<br>
+		<br>
+		To do step recording, please press the [Step Recording] button on the toolbar.<br>
+		<img src="assets/use_143.png" width="179" height="79"><br>
+		<br>
+		The [Step Recording] screen is displayed, so please specify Step and start input from the MIDI keyboard.<br>
+		<img src="assets/use_144.png" width="210" height="279"><br>
+		<br>
+		Also, while sounding, pressing the [Next/Tie][Previous] button can increase/decrease the Gate of the input note.<br>
+		(The same processing is performed by tilting the pitch bend instead of the [Next/Tie][Previous] button.)<br>
+		<br>
+		Also, by pressing the [PC Keyboard] button, you can do step recording from the PC keyboard without using a MIDI keyboard.<br>
+		<img src="assets/use_177.png" width="664" height="279"><br>
+		<br>
+		Shortcut keys etc. can be changed from the [Settings] button.<br>
+		<br>
+		If you want to try playing a sound, please input while holding the [Ctrl] key.<br>
+		(While holding the [Ctrl] key, no event is inserted.)<br>
+	</div>
+	<h3><a name="sysex_rec">Recieving System Exclusive events</a></h3>
+	<div class=w>
+		To take in exclusive data transmitted from MIDI devices etc. into Domino, click the [Exclusive Reception] button on the toolbar.<br>
+		<img src="assets/use_145.png" width="208" height="73"><br>
+		<br>
+		The [Exclusive Reception] screen is displayed, so set the midi-in device to receive and step,<br>
+		then start transmitting exclusive data from MIDI devices, etc.<br>
+		<img src="assets/use_146.png" width="294" height="99"><br>
+		<br>
+		When reception succeeds, an exclusive event is inserted on the screen.
+	</div>
+	<h3><a name="save">Saving a Project</a></h3>
+	<div class=w>
+		To save the edited content, press the [Save] button on the toolbar.<br>
+		<img src="assets/use_147.png" width="176" height="91"><br>
+		<br>
+		It will ask for the save location, so please specify where you want to save and the file name and press the [Save] button.<br>
+		<img src="assets/use_148.png" width="517" height="292"><br>
+		<br>
+        By the way, the file format saved here is Domino's own sequence data (<b>D</b>o<b>m</b>ino <b>S</b>equence Data).<br>
+		This cannot be played on other players, etc. as is.<br>
+		This is a save to keep all edited content carefully.<br>
+	</div>
+	<h3><a name="open">Opening a Project</a></h3>
+	<div class=w>
+		To open previously saved files or midi files, press the [Open] button on the toolbar.<br>
+		<img src="assets/use_149.png" width="249" height="79"><br>
+		<br>
+        It will ask which file to open, so please specify and press the [Open] button.<br>
+		<img src="assets/use_150.png" width="517" height="292"><br>
+		<br>
+		The file is loaded.<br>
+		<br>
+		<div class=memo>mid files (Standard MIDI File) can read Format 0 and Format 1.</div>
+		<br>
+		By the way, to open recently used files, please press the [▼] button on the right side of the [Open] button.<br>
+		<img src="assets/use_151.png" width="440" height="202"><br>
+	</div>
+	<h3><a name="eot">Adjusting End of Track</a></h3>
+	<div class=w>
+		There is an event (End of Track) indicating the end position of each track,<br>
+		and the End of Track that is last in time across all tracks becomes the end position of the song.<br>
+		<br>
+		If after playback finishes, playback does not end for a while from there,<br>
+		or conversely, if the end position of the song is too early (after writing out as a midi file) and playback ends before the sound finishes playing,<br>
+        this can be solved by adjusting the playback position.<br>
+		<br>
+		To adjust the end position of the song, set the position you want to be the end position as the playback position.<br>
+		<br>
+		Next, select [Mark End of Track] from the [Event] menu.<br>
+		<img src="assets/use_152.png" width="320" height="631"><br>
+		<br>
+		Now End of Track events for all tracks are rearranged at the playback position.<br>
+		(Of course, if there are events behind, they cannot be rearranged ^^;)<br>
+	</div>
+	<h3><a name="smf">Exporting as a MIDI File</a></h3>
+	<div class=w>
+		To write out the music data being edited as a mid file (Standard MIDI File),<br>
+		press the [Export As SMF (MIDI)...] button on the toolbar.<br>
+		<img src="assets/use_153.png" width="242" height="81"><br>
+		<br>
+		It will ask for the export destination, so please specify the location and file name and press the [Save] button.<br>
+		<img src="assets/use_154.png" width="517" height="346"><br>
+		<br>
+		It is written out as a mid file.
+	</div>
+	<h3><a name="backup">Backing Up</a></h3>
+	<div class=w>
+        For example, Domino crashes due to null pointer access while editing,<br>
+		the breaker trips because the family uses a hair dryer and microwave,<br>
+		the file being edited may disappear due to such external factors.<br>
+		<br>
+		Of course, if you [Save] frequently, that's fine, but it's not always easy to think that far.<br>
+		<br>
+		Therefore, if you use the backup function, the save process is automatically executed periodically.<br>
+		<br>
+		To use the backup function, press the [Preferences] button on the toolbar,<br>
+		<img src="assets/use_155.png" width="210" height="79"><br>
+		and select [Backup] on the left side of the [Preferences] screen.<br>
+		<br>
+		Please check [Perform Periodic Backup], specify the interval, file name, and save location, and click the [OK] button.<br>
+		<img src="assets/use_156.png" width="704" height="420"><br>
+		<br>
+		Now the file is saved at the specified time intervals.
+	</div>
+	<h3><a name="key_custom">Customizing Shortcut Keys</a></h3>
+	<div class=w>
+		Shortcut keys can be assigned to all commands displayed in the main menu.<br>
+		<br>
+		To assign a shortcut key, press the [Preferences] button on the toolbar,<br>
+		<img src="assets/use_155.png" width="210" height="79"><br>
+		and select [Shortcut Keys] on the left side of the [Preferences] screen.<br>
+		<br>
+		Content similar to the menu is displayed as a tree, so please select the command you want to assign.<br>
+		By pressing the key you want to assign from the keyboard, you can assign the key to the selected command.<br>
+		<img src="assets/use_157.png" width="704" height="420"><br>
+		<br>
+		Multiple keys can be assigned to one command.<br>
+		If you want to clear the key, please press the [Clear] button.<br>
+		Pressing the [Reset] button returns to the settings at the time of Domino introduction.<br>
+		<br>
+		Pressing the [OK] button reflects the settings.<br>
+		<img src="assets/use_158.png" width="276" height="133"><br>
+	</div>
+	<h3><a name="tb_custom">Customizing the Toolbar</a></h3>
+	<div class=w>
+		The toolbar on the main window can be freely customized.<br>
+		To customize the toolbar, select [Toolbar → Customize] from the [View] menu.<br>
+		<img src="assets/use_159.png" width="580" height="268"><br>
+		<br>
+		The [Toolbar Customize] screen is displayed.<br>
+		First, please select the toolbar you want to customize from the combo box.<br>
+		<img src="assets/use_160.png" width="313" height="182"><br>
+		<br>
+		Find the command you want to use from the left side and drag & drop it to the right side.<br>
+		<img src="assets/use_161.png" width="585" height="454"><br>
+		(If you change the category combo box, commands of that category appear)<br>
+		<br>
+        If you want to delete a command, select the command you want to delete and press the [Delete] button<br>
+		(or drag & drop the command to the outside).
+		If you want to change the name of the toolbar, please press the [Toolbar Name] button.<br>
+		If you want to return the toolbar to the state at introduction, please press the [Reset] button.<br>
+		<br>
+		Pressing the [OK] button reflects the customization content.<br>
+		<img src="assets/use_162.png" width="228" height="82"><br>
+		<br>
+		<div class=memo>
+			If you want to place a command without an icon on the toolbar, please submit a request in the sense of "please add an icon to that command" (^^;
+		</div>
+	</div>
+	<h3><a name="mouse_custom">Customizing Mouse Operations</a></h3>
+	<div class=w>
+		Mouse operations of the pen tool and selection tool can be freely customized.<br>
+		For example, at introduction, left-clicking with the pen tool places a note,<br>
+		but you can make left-click a preview and place a note with left-double-click.<br>
+		<br>
+		To customize mouse operations, press the [Preferences] button on the toolbar,<br>
+		<img src="assets/use_155.png" width="210" height="79"><br>
+		and select [Mouse Operations (1)] on the left side of the [Preferences] screen.<br>
+		A correspondence table of mouse operations and movements is displayed, so please click the part you want to change.<br>
+		Options are displayed, so please select the desired operation.<br>
+		<img src="assets/use_163.png" width="704" height="420"><br>
+		<br>
+		Pressing the [OK] button reflects the content.<br>
+		<br>
+		<div class=caution>
+			Middle click (= wheel click) may not be available depending on the mouse driver.<br>
+            Middle click may become available by changing the settings on the mouse driver side.<br>
+		</div>
+	</div>
+	<h3><a name="curve_custom">Customizing Curves and Lines</a></h3>
+	<div class=w>
+		You can input lines/curves on the event graph using [Line] or [Fast Curve],<br>
+		but these lines/curves can be freely customized with formulas.<br>
+		<br>
+		To customize curves and lines, press the [▼] button on the right side of the [Line] button on the toolbar,<br>
+		and select [Customize] → [Edit] from the menu that appears.<br>
+		<img src="assets/use_164.png" width="413" height="243"><br>
+		<br>
+		The [Curve Customize] screen is displayed.<br>
+		If you want to add a new line/curve, please press the [Add] button and enter the name.<br>
+		<img src="assets/use_165.png" width="629" height="540"><br>
+		<br>
+		The content selected in the [Curve List] area on the left is displayed in the [Curve Settings] area on the right.<br>
+		Please enter the curve formula and press the [OK] button after checking the preview.<br>
+		<img src="assets/use_166.png" width="629" height="540"><br>
+		<br>
+		Also, in the preview area, you can freely move the start and end points with mouse drag.<br>
+		<br>
+		<div class=memo>
+			Since the X-axis unit is different between this preview screen and the actual event graph screen,<br>
+			it may not be very reliable... .
+		</div>
+		<br>
+		To use the curve formula created this way on the event graph,<br>
+		select [Customize] from the menu that appears by pressing the [▼] button on the right side of the [Line] button on the toolbar,<br>
+		and select the curve you want to use.<br>
+		<img src="assets/use_167.png" width="339" height="242"><br>
+		<br>
+		<div class=memo>
+			If you use customized curves frequently, it is convenient to add an [Edit] icon in the toolbar customization.<br>
+			<img src="assets/use_183.png" width="190" height="91"><br>
+			<br>
+            If there is room, adding a [Line/Curve] combo box makes it even more convenient.<br>
+			<img src="assets/use_184.png" width="211" height="189"><br>
+		</div>
+		<br>
+		After that, just drag the mouse on the event graph pane just like with lines, etc., and you can input with that curve.<br>
+		<img src="assets/use_168.png" width="417" height="196"><br>
+	</div>
+</body>
+
+</html>
